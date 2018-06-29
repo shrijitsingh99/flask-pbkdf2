@@ -14,6 +14,7 @@ setup(
     zip_safe=False,
     include_package_data=True,
     platforms="any",
+    python_requires='>=3.6',
     install_requires=[
         "Flask", "pbkdf2"
     ],
@@ -25,5 +26,6 @@ setup(
         "Programming Language :: Python",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: Python Modules"
-    ]
+    ],
+    test_suite='test_pbkdf2'
 )

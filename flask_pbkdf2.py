@@ -11,11 +11,14 @@ except ImportError as e:
     print('pbkdf2 is required to use Flask-PBKDF2')
     raise e
 
+
 def generate_password_hash(password,  salt=None, iterations=None):
     return PBKDF2().generate_password_hash(password, salt=None, iterations=None)
 
+
 def check_password_hash(password_hash, password):
     return PBKDF2().check_password_hash(password_hash, password)
+
 
 class PBKDF2(object):
 
@@ -26,7 +29,7 @@ class PBKDF2(object):
             self.init_app(app)
 
     def init_app(self, app):
-        pass
+        self._iterations = app.config.get('PBKDF2_ITERATIONS', 400)
 
     def generate_password_hash(self, password, salt=None, iterations=None):
 
